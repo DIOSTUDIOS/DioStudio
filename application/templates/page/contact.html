@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+DIOSTUDIO - @我
+{% endblock %}
+
+{% block content %}
+
+    <section id="content-wrap" class="site-page">
+        <div class="row">
+            <div class="col-twelve">
+                <section>
+                    <div class="primary-content">
+                        <form name="cForm" id="cForm" method="post" action="">
+                            {{ form.csrf_token }}
+                            <fieldset>
+                                <div class="form-field">
+                                    <label for="cName">
+                                        {{ form.cName }}
+                                    </label>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="cEmail">
+                                        {{ form.cEmail }}
+                                    </label>
+                                </div>
+
+                                <div class="message form-field">
+                                    <label for="cMessage">
+                                        {{ form.cMessage }}
+                                    </label>
+                                </div>
+                                {{ form.cSubmit }}
+                            </fieldset>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

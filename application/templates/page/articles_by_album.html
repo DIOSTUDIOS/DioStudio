@@ -1,0 +1,75 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+DIOSTUDIO - 文章
+{% endblock %}
+
+{% block content %}
+    <section id="bricks" class="with-top-sep">
+        <div class="row masonry">
+            <div class="bricks-wrapper">
+                <div class="grid-sizer">
+
+                </div>
+                {% for article in articles %}
+                <article class="brick entry format-standard animate-this">
+                    <div class="entry-text">
+                        <div class="entry-header">
+                            <h1 class="entry-title">
+                                <a href="{{ url_for('articlesPage.get_article_by_title', title=article.title) }}" target="_blank">{{ article.title }}</a>
+                            </h1>
+                            <div class="entry-meta">
+                                <span class="cat-links">
+                                    <span>发布时间：{{ article.create_time }}</span>
+                                    <br>
+                                    <span>阅读数量：{{ article.reading_quantities }}</span>
+                                    <br>
+                                    <span>所属专辑：
+                                        <a href="{{ url_for('articlesPage.get_articles_by_album', album=article.album) }}">
+                                            {{ article.album }}
+                                        </a>
+                                    </span>
+                                    <br>
+                                    <span>文章分类：
+                                        <a href="{{ url_for('articlesPage.get_articles_by_category', category=article.category) }}">
+                                            {{ article.category }}
+                                        </a>
+                                        </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="entry-excerpt">
+                            {{ article.summary }}
+                        </div>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="row">
+            <nav class="pagination">
+                {% if paginate.has_prev %}
+                    <a href="{{ articles.album }}?page={{ paginate.prev_num }}" class="page-numbers prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                {% endif %}
+
+                {% for page in paginate.iter_pages() %}
+                    {% if page == paginate.page %}
+                        <span class="page-numbers current">{{ page }}</span>
+                    {% else %}
+                        <a href="{{ articles.album }}?page={{ page }}" class="page-numbers">{{ page }}</a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if paginate.has_next %}
+                    <a href="{{ articles.album }}?page={{ paginate.next_num }}" class="page-numbers next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                {% endif %}
+            </nav>
+        </div>
+    </section>
+
+{% endblock %}

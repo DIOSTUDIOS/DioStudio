@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+DIOSTUDIO - 首页
+{% endblock %}
+
+{% block content %}
+
+    <div class="align-center" style="margin-top: 16px;">
+        <a href="{{ url_for('homePage.index') }}">
+            <img src="{{ url_for('static', filename='images/wordsCloud.png') }}" alt="">
+        </a>
+    </div>
+
+{% endblock %}

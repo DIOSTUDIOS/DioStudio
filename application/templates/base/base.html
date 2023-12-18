@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <!--- basic page need
+    ================================================== -->
+    <meta charset="utf-8">
+	<title>{% block title %}{% endblock %}</title>
+	<meta name="description" content="提放有度，自在为人。保持前进，以致更好！">
+	<meta name="author" content="DIOSTUDIO">
+    <meta name="keywords" content="diostudio, 王志强, python, 编程, python教程, flask">
+    <!-- mobile specific metas
+    ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vendor.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <!-- script
+    ================================================== -->
+	<script src="{{ url_for('static', filename='js/modernizr.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/pace.min.js') }}"></script>
+    <!-- favicons
+	================================================== -->
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon">
+	<link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon">
+    {% block head %}
+
+    {% endblock %}
+</head>
+
+<body id="top">
+    <!-- header
+    ================================================== -->
+    <header class="short-header">
+        <div class="gradient-block">
+
+        </div>
+        <div class="row header-content">
+            <div class="logo">
+                <a href="{{ url_for('homePage.index') }}">Author</a>
+            </div>
+
+            <nav id="main-nav-wrap">
+                <ul class="main-navigation sf-menu">
+					<li>
+                        <a href="{{ url_for('homePage.index') }}" title="">首页</a>
+                    </li>
+                    <li>
+						<a href="{{ url_for('articlesPage.articles') }}" title="">文章</a>
+					</li>
+					<li>
+						<a href="{{ url_for('albumPage.albums') }}" title="">专辑</a>
+					</li>
+					<li>
+						<a href="{{ url_for('discussPage.discuss') }}" title="">集思</a>
+					</li>
+                    <li>
+						<a href="{{ url_for('favoritesPage.favorites') }}" title="">收藏</a>
+					</li>
+					<li>
+                        <a href="{{ url_for('aboutPage.about') }}" title="">关于</a>
+                    </li>
+					<li>
+                        <a href="{{ url_for('contactPage.contact') }}" title="">@我</a>
+                    </li>
+				</ul>
+			</nav> <!-- end main-nav-wrap -->
+
+			<div class="search-wrap">
+				<form role="search" method="get" class="search-form" action="#">
+					<label>
+						<span class="hide-content">Search for:</span>
+						<input type="search" class="search-field" placeholder="Type Your Keywords" value="" name="s" title="Search for:" autocomplete="off">
+					</label>
+					<input type="submit" class="search-submit" value="Search">
+				</form>
+				<a href="#" id="close-search" class="close-btn">Close</a>
+			</div> <!-- end search wrap -->
+
+			<div class="triggers">
+				<a class="search-trigger" href="#">
+                    <i class="fa fa-search"></i>
+                </a>
+				<a class="menu-toggle" href="#">
+                    <span>Menu</span>
+                </a>
+			</div>
+        </div>
+    </header>
+
+    {% block content %}
+        {% for message in get_flashed_messages() %}
+        <div class="flash alert-box">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endblock %}
+
+    <!-- footer
+    ================================================== -->
+    <footer>
+        <div class="footer-bottom">
+            <div class="row">
+                <div class="col-twelve">
+                    <div class="copyright">
+                        <span>Since 2023&nbsp;&nbsp;<i class="fa fa-fire"></i>&nbsp;
+                            <a href="{{ url_for('homePage.index') }}">DIOSTUDIO</a>&nbsp;&nbsp;黑ICP备2022000572号-1
+                        </span>
+                    </div>
+
+                    <div id="go-top">
+                        <a class="smoothscroll" title="Back to Top" href="#top">
+                            <i class="icon icon-arrow-up"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end footer-bottom -->
+    </footer>
+    <!-- Java Script
+    ================================================== -->
+    <script src="{{ url_for('static', filename='js/jquery-2.1.3.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.appear.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

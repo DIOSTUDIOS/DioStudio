@@ -1,0 +1,62 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+DIOSTUDIO - 专辑
+{% endblock %}
+
+{% block content %}
+    <section id="bricks" class="with-top-sep">
+        <div class="row masonry">
+            <div class="bricks-wrapper">
+                <div class="grid-sizer">
+
+                </div>
+                {% for album in albums %}
+                <article class="brick entry format-standard animate-this">
+                    <div class="entry-text">
+                        <div class="entry-header">
+                            <div class="entry-meta">
+{#                                <span class="cat-links">#}
+{#                                    <a href="#">Design</a>#}
+{#                                    <a href="#">Photography</a>#}
+{#                                </span>#}
+                            </div>
+                            <h1 class="entry-title">
+                                <a href="{{ url_for('articlesPage.get_articles_by_album', album=album.title) }}">{{ album.title }}</a>
+                            </h1>
+                        </div>
+                        <div class="entry-excerpt">
+                            {{ album.summary }}
+                        </div>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="row">
+            <nav class="pagination">
+                {% if paginate.has_prev %}
+                    <a href="./albums?page={{ paginate.prev_num }}" class="page-numbers prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                {% endif %}
+
+                {% for page in paginate.iter_pages() %}
+                    {% if page == paginate.page %}
+                        <span class="page-numbers current">{{ page }}</span>
+                    {% else %}
+                        <a href="./albums?page={{ page }}" class="page-numbers">{{ page }}</a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if paginate.has_next %}
+                    <a href="./albums?page={{ paginate.next_num }}" class="page-numbers next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                {% endif %}
+            </nav>
+        </div>
+    </section>
+
+{% endblock %}

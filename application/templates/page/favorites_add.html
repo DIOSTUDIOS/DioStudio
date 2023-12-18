@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    DIOSTUDIO - 新增收藏
+{% endblock %}
+
+{% block content %}
+
+    <section id="content-wrap" class="site-page">
+        <div class="row">
+            <div class="col-twelve">
+                <section>
+                    <div class="primary-content">
+                        <form name="cForm" id="cForm" method="post" action="">
+                            {{ form.csrf_token }}
+                            <fieldset>
+                                <div class="form-field">
+                                    <label for="cTitle">
+                                        {{ form.cTitle }}
+                                    </label>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="cLink">
+                                        {{ form.cLink }}
+                                    </label>
+                                </div>
+
+                                <div class="message form-field">
+                                    <label for="cSummary">
+                                        {{ form.cSummary }}
+                                    </label>
+                                </div>
+                                {{ form.cSubmit }}
+                            </fieldset>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
