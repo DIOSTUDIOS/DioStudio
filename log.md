@@ -18,3 +18,5 @@
   - 修改 create_articles 命令，增加必填项数据生成功能
   - 新增 create_categories 命令
 - 输出 requirements.txt 文件
+
+## 231219.001
