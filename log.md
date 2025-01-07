@@ -27,3 +27,7 @@
 
 - 修改README.md
   - 增加描述
+
+## 250107.002
+
+- 添加 requirements.txt 文件
