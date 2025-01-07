@@ -1,0 +1,77 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+DIOSTUDIO - 文章
+{% endblock %}
+
+{% block content %}
+
+    <div class="s-content">
+        <div class="masonry-wrap">
+            <div class="masonry">
+                <div class="grid-sizer">
+
+                </div>
+                {% for article in articles %}
+                    <article class="masonry__brick entry format-standard animate-this">
+                        <div class="entry__text">
+                            <div class="entry__header">
+                                <h2 class="entry__title">
+                                    <a href="{{ url_for('articlePage.get_article_by_title', title=article.title) }}" target="_blank">{{ article.title }}</a>
+                                </h2>
+                                <div class="entry__meta">
+                                    <span class="entry__meta-cat">
+                                        发布时间：{{ article.create_time }}
+                                        <br>
+                                        阅读数量：{{ article.reading_quantities }}
+                                        <br>
+                                        所属专辑：<a href="{{ url_for('articlePage.get_articles_by_album', album=article.album) }}">{{ article.album }}</a>
+                                        <br>
+                                        文章分类：<a href="{{ url_for('articlePage.get_articles_by_category', category=article.category) }}">{{ article.category }}</a>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="entry__excerpt">
+                                <p>
+                                {{ article.summary }}
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column large-full">
+                <nav class="pgn">
+                    {% if paginate %}
+                        <ul>
+                        {% if paginate.has_prev %}
+                            <li><a class="pgn__prev" href="?page={{ paginate.prev_num }}">Prev</a></li>
+                        {% endif %}
+
+                        {% for page in paginate.iter_pages() %}
+                            {% if page %}
+                                {% if page == paginate.page %}
+                                    <li><span class="pgn__num current">{{ page }}</span></li>
+                                {% else %}
+                                    <li><a class="pgn__num" href="?page={{ page }}">{{ page }}</a></li>
+                                {% endif %}
+                            {% else %}
+                                <li><span class="pgn__num dots">&hellip;</span></li>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if paginate.has_next %}
+                            <li><a class="pgn__next" href="?page={{ paginate.next_num }}">Next</a></li>
+                        {% endif %}
+                        </ul>
+                    {% endif %}
+                </nav>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

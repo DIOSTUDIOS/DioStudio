@@ -1,0 +1,47 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    DIOSTUDIO - 删除专辑
+{% endblock %}
+
+{% block content %}
+
+    <div class="row add-bottom">
+        <div class="col-twelve">
+            <h3></h3>
+
+	      	<div class="table-responsive">
+                <form name="cForm" id="cForm" method="post" action="">
+                    {{ form.csrf_token }}
+                    <fieldset>
+                        <div class="form-field col-ten align-center">
+                            <label for="cTitle">
+                                {{ form.cTitle }}
+                            </label>
+                        </div>
+                        <div class="form-field col-two align-center">
+                            <label for="cSubmit">
+                                {{ form.cSubmit }}
+                            </label>
+                        </div>
+                    </fieldset>
+                </form>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>专辑名称</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for album in albums %}
+                        <tr>
+                            <td>{{ album.title}}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

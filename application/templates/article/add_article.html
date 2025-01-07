@@ -1,0 +1,62 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    DIOSTUDIO - 新增文章
+{% endblock %}
+
+{% block content %}
+
+    <div class="s-content content">
+        <main class="row content__page">
+            <section class="column large-full entry format-standard">
+                <form name="contactForm" id="contactForm" method="post" autocomplete="off">
+                    {{ form.csrf_token }}
+                    <fieldset>
+                        <div class="form-field"><label for="cTitle">{{ form.cTitle }}</label></div>
+
+                        <div class="form-field"><label for="cSummary">{{ form.cSummary }}</label></div>
+
+                        <div class="form-field"><label for="cContent">{{ form.cContent }}</label></div>
+
+                        <div class="form-field">
+                            <label for="cAlbum"></label>
+                            <div class="ss-custom-select">
+                                <label for="sampleRecipientInput"></label>
+                                <select class="full-width" id="sampleRecipientInput">
+                                    <option value="无">无</option>
+                                    {% for album in albums %}
+                                        {% for title in album %}
+                                            <option value="{{ title }}">{{ title }}</option>
+                                        {% endfor %}
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-field"><label for="cAlbumOrder">{{ form.cAlbumOrder }}</label></div>
+
+                        <div class="form-field">
+                            <label for="cCategory"></label>
+                            <div class="ss-custom-select">
+                                <label for="sampleRecipientInput"></label>
+                                <select class="full-width" id="sampleRecipientInput">
+                                    <option value="无">无</option>
+                                    {% for category in categories %}
+                                        {% for title in category %}
+                                        <option value="{{ title }}">{{ title }}</option>
+                                        {% endfor %}
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-field"><label for="cKeywords">{{ form.cKeywords }}</label></div>
+
+                        {{ form.cSubmit }}
+                    </fieldset>
+                </form>
+            </section>
+        </main>
+    </div>
+
+{% endblock %}

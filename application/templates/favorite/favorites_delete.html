@@ -1,0 +1,51 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    DIOSTUDIO - 删除收藏
+{% endblock %}
+
+{% block content %}
+
+    <div class="row add-bottom">
+        <div class="col-twelve">
+            <h3></h3>
+
+	      	<div class="table-responsive">
+                <form name="cForm" id="cForm" method="post" action="">
+                    {{ form.csrf_token }}
+                    <fieldset>
+                        <div class="form-field col-ten align-center">
+                            <label for="cTitle">
+                                {{ form.cTitle }}
+                            </label>
+                        </div>
+                        <div class="form-field col-two align-center">
+                            <label for="cSubmit">
+                                {{ form.cSubmit }}
+                            </label>
+                        </div>
+                    </fieldset>
+                </form>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>网站名称</th>
+                        <th>网站地址</th>
+                        <th>网站简介</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for favorite in favorites %}
+                        <tr>
+                            <td>{{ favorite.title}}</td>
+                            <td>{{ favorite.link }}</td>
+                            <td>{{ favorite.summary }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

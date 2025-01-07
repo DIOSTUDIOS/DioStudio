@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+DIOSTUDIO - 首页
+{% endblock %}
+
+{% block content %}
+
+    <div class="s-content content">
+        <main class="row content__page">
+            <article class="column large-full entry format-standard">
+                {{ content|safe }}
+            </article>
+        </main>
+    </div>
+
+{% endblock %}

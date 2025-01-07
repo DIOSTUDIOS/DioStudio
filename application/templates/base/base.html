@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="提放有度，自在为人。保持前进，以致更好！">
+    <meta name="author" content="DIOSTUDIO">
+    <meta name="keywords" content="diostudio, 王志强, python, 编程, python教程, flask">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vendor.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <!-- script
+    ================================================== -->
+    <script src="{{ url_for('static', filename='js/modernizr.js') }}"></script>
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon">
+
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">#}
+</head>
+
+<body>
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div id="top" class="s-wrap site-wrapper">
+        <!-- site header
+        ================================================== -->
+        <header class="s-header">
+            <div class="header__top">
+                <div class="header__logo">
+                    <a class="site-logo" href="{{ url_for('indexPage.index') }}">
+                        <img src="{{ url_for('static', filename='favicon.png') }}" alt="Homepage">
+                    </a>
+                </div>
+
+                <div class="header__search">
+                    <form role="search" method="get" class="header__search-form" action="#">
+                        <label>
+                            <span class="hide-content">Search for:</span>
+                            <input type="search" class="header__search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="header__search-submit" value="Search">
+                    </form>
+
+                    <a href="{{ url_for('indexPage.index') }}" title="Close Search" class="header__search-close">Close</a>
+                </div>
+                <!-- toggles -->
+                <a href="{{ url_for('indexPage.index') }}" class="header__search-trigger"></a>
+                <a href="{{ url_for('indexPage.index') }}" class="header__menu-toggle">
+                    <span>Menu</span>
+                </a>
+            </div>
+
+            <nav class="header__nav-wrap">
+                <ul class="header__nav">
+                    <li style="text-align: center;"><a href="{{ url_for('indexPage.index') }}" title="">首页</a></li>
+                    <li style="text-align: center;"><a href="{{ url_for('articlePage.get_articles') }}" title="">文章</a></li>
+                    <li style="text-align: center;"><a href="{{ url_for('albumPage.get_albums') }}" title="">专辑</a></li>
+                    <li style="text-align: center;"><a href="{{ url_for('discussPage.get_discussions') }}" title="">集思</a></li>
+                    <li style="text-align: center;"><a href="{{ url_for('favoritesPage.get_favorites') }}" title="">收藏</a></li>
+                    <li style="text-align: center;"><a href="{{ url_for('aboutPage.about') }}" title="">关于</a></li>
+                    <li style="text-align: center;"><a href="{{ url_for('contactPage.contact') }}" title="">@我</a></li>
+                </ul>
+
+                <ul class="header__social">
+                    <li class="ss-zhihu">
+                        <a href="https://www.zhihu.com/" target="_blank">
+                            <span class="screen-reader-text">知乎</span>
+                        </a>
+                    </li>
+                    <li class="ss-csdn">
+                        <a href="https://www.csdn.net/" target="_blank">
+                            <span class="screen-reader-text">CSDN</span>
+                        </a>
+                    </li>
+                    <li class="ss-gongzhonghao">
+                        <a href="#0">
+                            <span class="screen-reader-text">公众号</span>
+                        </a>
+                    </li>
+                    <li class="ss-github">
+                        <a href="#0">
+                            <span class="screen-reader-text">GitHub</span>
+                        </a>
+                    </li>
+                    <li class="ss-email">
+                        <a href="#0">
+                            <span class="screen-reader-text">GitHub</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        {% block content %}
+
+        {% endblock %}
+
+        <!-- footer
+        ================================================== -->
+        <footer class="s-footer">
+            <div class="row">
+                <div class="column large-full footer__content">
+                    <div class="footer__copyright">Since 2023.&nbsp;&nbsp;&nbsp;&nbsp;黑ICP备2022000572号-1.</div>
+                </div>
+            </div>
+
+            <div class="go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top"></a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>

@@ -1,0 +1,17 @@
+{% extends 'base/base_article.html' %}
+
+{% block title %}
+DIOSTUDIO - {{ title }}
+{% endblock %}
+
+{% block article %}
+{# safe 过滤器用于将 Html 代码在渲染时正常显示，而不转义 #}
+    <div class="s-content content">
+        <main class="row content__page">
+            <article class="column large-full entry format-standard">
+                {{ content|safe }}
+            </article>
+        </main>
+    </div>
+
+{% endblock %}
