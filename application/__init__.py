@@ -24,12 +24,14 @@ def create_app():
 
     return app
 
+
 def register_plugins(app):
     db.init_app(app)
     migrate.init_app(app, db)
     mail.init_app(app)
 
     pass
+
 
 def register_modules(app):
     app.register_blueprint(indexPage)
@@ -40,6 +42,7 @@ def register_modules(app):
     app.register_blueprint(aboutPage)
     app.register_blueprint(contactPage)
     pass
+
 
 def register_assists(app):
     app.cli.command('create-articles')(create_articles)
