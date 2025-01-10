@@ -8,7 +8,6 @@ indexPage = Blueprint('indexPage', __name__)
 @indexPage.route('/')
 def index():
     article = Article.query.order_by(Article.sequence.desc()).first()
-    title = article.title
     content = ''.join(article.content)
 
     return render_template('index/index.html', content=content)

@@ -29,7 +29,6 @@ def register_plugins(app):
     db.init_app(app)
     migrate.init_app(app, db)
     mail.init_app(app)
-
     pass
 
 

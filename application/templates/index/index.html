@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-DIOSTUDIO - 首页
+    DIOSTUDIO - 首页
 {% endblock %}
 
 {% block content %}
@@ -9,7 +9,15 @@ DIOSTUDIO - 首页
     <div class="s-content content">
         <main class="row content__page">
             <article class="column large-full entry format-standard">
-                {{ content|safe }}
+                <div class="media-wrap entry__media">
+                    <div class="entry__slider slider">
+                        <div class="slider__slides">
+                            <div class="slider__slide">
+                                {{ content|safe }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </article>
         </main>
     </div>
