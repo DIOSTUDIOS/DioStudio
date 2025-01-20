@@ -4,26 +4,22 @@
     DIOSTUDIO - 首页
 {% endblock %}
 
-{% block article %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/article.css') }}">
-{% endblock %}
-
 {% block content %}
 
-{#    <div class="s-content content">#}
-{#        <main class="row content__page">#}
-{#            <article class="column large-full entry format-standard">#}
-{#                <div class="media-wrap entry__media">#}
-{#                    <div class="entry__slider slider">#}
-{#                        <div class="slider__slides">#}
-{#                            <div class="slider__slide">#}
+    <div class="s-content content">
+        <main class="row content__page">
+            <article class="column large-full entry format-standard">
+                <div class="media-wrap entry__media">
+                    <div class="entry__slider slider">
+                        <div class="slider__slides">
+                            <div class="slider__slide">
                                 {{ content|safe }}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </article>#}
-{#        </main>#}
-{#    </div>#}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
 
 {% endblock %}
